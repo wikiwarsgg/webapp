@@ -1,0 +1,29 @@
+{
+  "name": "@wikiwars/app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "precommit": "lint-staged",
+    "start": "next start",
+    "test": "jest || echo 0"
+  },
+  "dependencies": {
+    "next": "9.3.1",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "rtcmulticonnection": "3.6.9"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,css,json,md}": [
+      "prettier --write"
+    ]
+  }
+}

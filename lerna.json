@@ -1,0 +1,14 @@
+{
+  "packages": ["packages/*"],
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "version": "0.1.0",
+  "command": {
+    "version": {
+      "allowBranch": "master",
+      "conventionalCommits": true,
+      "changelogPreset": "conventional-changelog-gitmoji",
+      "message": ":bookmark: Release %s"
+    }
+  }
+}
