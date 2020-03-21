@@ -1,0 +1,1 @@
+worker: yarn workspace @wikiwars/server start
