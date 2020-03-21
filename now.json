@@ -5,7 +5,8 @@
   "build": {
     "env": {
       "BUILDING_FOR_NOW": "true",
-      "signallingServer": "https://wikiwars-app-server-staging.herokuapp.com"
+      "signallingServer": "https://wikiwars-app-server-staging.herokuapp.com",
+      "broadcastServer": "http://localhost:9002"
     }
   }
 }
