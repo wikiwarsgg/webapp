@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const assetPrefix = process.env.BUILDING_FOR_NOW === "true" ? "/player" : "";
 
 module.exports = {
