@@ -4,6 +4,6 @@ module.exports = {
   assetPrefix,
   env: {
     signallingServer: process.env.signallingServer,
-    broadcastServer: broadcastServer.env.broadcastServer
+    broadcastServer: process.env.broadcastServer
   }
 };
