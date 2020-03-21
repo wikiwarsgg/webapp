@@ -5,18 +5,6 @@
   "workspaces": [
     "packages/*"
   ],
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "test": "jest || echo 0"
-  },
-  "dependencies": {
-    "next": "9.3.1",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "rtcmulticonnection": "^3.6.9"
-  },
   "devDependencies": {
     "@commitlint/cli": "8.3.5",
     "@types/node": "13.9.2",

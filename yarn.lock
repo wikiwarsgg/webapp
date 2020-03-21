@@ -9716,7 +9716,7 @@ rtcmulticonnection-server@1.3.1, rtcmulticonnection-server@latest:
   dependencies:
     socket.io latest
 
-rtcmulticonnection@^3.6.9:
+rtcmulticonnection@3.6.9:
   version "3.6.9"
   resolved "https://registry.yarnpkg.com/rtcmulticonnection/-/rtcmulticonnection-3.6.9.tgz#876167944ada7f2712456a5316444c65da3f41c8"
   integrity sha512-7TEjH4AVJXkoQZnK/3XLrR9M6Hi7xhiWGLELvFtpMC9d8nOsHb1p5lol89Hgs978NueoC2f6sF55qNAMtdLbzw==

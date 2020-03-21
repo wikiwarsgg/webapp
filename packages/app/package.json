@@ -12,7 +12,8 @@
   "dependencies": {
     "next": "9.3.1",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "rtcmulticonnection": "3.6.9"
   },
   "husky": {
     "hooks": {
