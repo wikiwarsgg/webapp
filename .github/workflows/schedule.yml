@@ -1,0 +1,17 @@
+on:
+  schedule:
+    - cron: "0 8 * * *"
+name: Daily Jobs
+jobs:
+  renovate:
+    name: Renovate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Run Renovate
+        uses: docker://renovate/renovate:19-slim@sha256:a417d6517fd4ac0bd65c8a8a98b3627fc89a4b7fe801c40c0a207c58aa5e1ba9
+        env:
+          RENOVATE_REPOSITORIES: wikiwarsgg/webapp
+          RENOVATE_COMMITMESSAGEPREFIX: ":arrow_up:"
+          RENOVATE_AUTOMERGE: true
+          RENOVATE_TOKEN: ${{ secrets.RENOVATE_TOKEN }}
