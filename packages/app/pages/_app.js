@@ -34,7 +34,7 @@ const App = ({ Component, pageProps }) => {
   return (
     <Wrapper>
       <Head>
-        <title>Create Next App</title>
+        <title>Play Wikiwars!</title>
         <link rel="icon" href="/favicon.png" />
         <script src="https://rtcmulticonnection.herokuapp.com/socket.io/socket.io.js" />
       </Head>
