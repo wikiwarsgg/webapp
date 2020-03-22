@@ -6,7 +6,8 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "yarn workspace @wikiwars/server build"
+    "build": "lerna run build",
+    "test": "lerna run test"
   },
   "devDependencies": {
     "@commitlint/cli": "8.3.5",
