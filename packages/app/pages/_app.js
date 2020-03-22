@@ -8,8 +8,7 @@ const App = ({ Component, pageProps }) => {
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
-        <script src="https://rtcmulticonnection.herokuapp.com/dist/RTCMultiConnection.min.js"></script>
-        <script src="https://rtcmulticonnection.herokuapp.com/socket.io/socket.io.js"></script>
+        <script src="https://rtcmulticonnection.herokuapp.com/socket.io/socket.io.js" />
       </Head>
 
       <Component {...pageProps} />
