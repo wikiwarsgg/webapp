@@ -1,0 +1,9 @@
+{
+  "extends": [
+    "config:base",
+    ":automergePatch",
+    ":automergePr",
+    ":disableDigestUpdates"
+  ],
+  "commitMessagePrefix": "⬆️"
+}
