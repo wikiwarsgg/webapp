@@ -1,7 +1,18 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
+import tw from "twin.macro";
 
 import createConnection from "../helpers/connection";
+
+const Wrapper = tw.div`
+  flex
+  flex-row
+  p-4
+`;
+
+const Col = tw.div`
+  m-4
+`;
 
 const Game = () => {
   const { query } = useRouter();
@@ -14,25 +25,16 @@ const Game = () => {
   });
 
   return (
-    <div>
-      <style jsx global>
-        {`
-          #game {
-            display: flex;
-            flex-direction: row;
-          }
-          video {
-            width: 100% !important;
-            height: auto !important;
-          }
-        `}
-      </style>
-
-      <div id="game">
-        <div id="player1" />
-        <div id="player2" />
-      </div>
-    </div>
+    <Wrapper>
+      <Col>
+        <p>Player 1</p>
+        <div id="player1"></div>
+      </Col>
+      <Col>
+        <p>Player 2</p>
+        <div id="player2"></div>
+      </Col>
+    </Wrapper>
   );
 };
 export default Game;

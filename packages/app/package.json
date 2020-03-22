@@ -27,5 +27,12 @@
     "*.{js,ts,tsx,css,json,md}": [
       "prettier --write"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-react-jsx": "7.9.1",
+    "@emotion/core": "10.0.28",
+    "@emotion/styled": "10.0.27",
+    "babel-plugin-macros": "2.8.0",
+    "twin.macro": "1.0.0-alpha.7"
   }
 }
