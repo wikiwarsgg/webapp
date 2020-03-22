@@ -1,7 +1,7 @@
 import RTCMultiConnection from "rtcmulticonnection";
 import CodecsHelper from "./codecs";
 
-var IceServersHandler = (function() {
+var IceServersHandler = (function () {
   function getIceServers(connection) {
     // resiprocate: 3344+4433
     // pions: 7575
@@ -9,36 +9,36 @@ var IceServersHandler = (function() {
       {
         urls: ["stun:webrtcweb.com:7788"],
         username: "muazkh",
-        credential: "muazkh"
+        credential: "muazkh",
       },
       {
         urls: [
           "turn:webrtcweb.com:7788", // coTURN 7788+8877
           "turn:webrtcweb.com:8877",
-          "turn:webrtcweb.com:4455" // restund udp
+          "turn:webrtcweb.com:4455", // restund udp
         ],
         username: "muazkh",
-        credential: "muazkh"
+        credential: "muazkh",
       },
       {
         urls: [
           "stun:stun.l.google.com:19302",
           "stun:stun1.l.google.com:19302",
           "stun:stun2.l.google.com:19302",
-          "stun:stun.l.google.com:19302?transport=udp"
-        ]
-      }
+          "stun:stun.l.google.com:19302?transport=udp",
+        ],
+      },
     ];
 
     return iceServers;
   }
 
   return {
-    getIceServers: getIceServers
+    getIceServers: getIceServers,
   };
 })();
 
-export default function(stream) {
+export default (roomId) => (stream) => {
   // www.RTCMultiConnection.org/docs/
   const connection = new RTCMultiConnection();
   connection.socketURL = process.env.signallingServer;
@@ -57,25 +57,25 @@ export default function(stream) {
     audio: true,
     video: true,
     data: true,
-    oneway: true
+    oneway: true,
   };
 
   connection.candidates = {
     stun: true,
-    turn: true
+    turn: true,
   };
 
   connection.iceProtocols = {
     tcp: true,
-    udp: true
+    udp: true,
   };
 
   connection.optionalArgument = {
     optional: [],
-    mandatory: {}
+    mandatory: {},
   };
 
-  connection.channel = connection.sessionid = connection.userid;
+  connection.channel = connection.sessionid = connection.userid = roomId;
 
   connection.autoReDialOnFailure = true;
   connection.getExternalIceServers = false;
@@ -92,7 +92,7 @@ export default function(stream) {
   }
 
   let bandwidth, codecs;
-  connection.processSdp = function(sdp) {
+  connection.processSdp = function (sdp) {
     if (bandwidth) {
       try {
         bandwidth = parseInt(bandwidth);
@@ -109,7 +109,7 @@ export default function(stream) {
         sdp = setBandwidth(sdp, bandwidth);
         sdp = CodecsHelper.setVideoBitrates(sdp, {
           min: bandwidth,
-          max: bandwidth
+          max: bandwidth,
         });
       }
     }
@@ -123,10 +123,10 @@ export default function(stream) {
   // www.rtcmulticonnection.org/docs/sdpConstraints/
   connection.sdpConstraints.mandatory = {
     OfferToReceiveAudio: false,
-    OfferToReceiveVideo: false
+    OfferToReceiveVideo: false,
   };
 
-  connection.onstream = connection.onstreamended = function(event) {
+  connection.onstream = connection.onstreamended = function (event) {
     try {
       event.mediaElement.pause();
       delete event.mediaElement;
@@ -207,7 +207,7 @@ export default function(stream) {
     // })
   }
 
-  connection.onSocketDisconnect = function(event) {
+  connection.onSocketDisconnect = function (event) {
     console.log("Connection closed", event);
     // alert('Connection to the server is closed.');
     // if (connection.getAllParticipants().length > 0) return
@@ -216,21 +216,21 @@ export default function(stream) {
     // chrome.runtime.reload();
   };
 
-  connection.onSocketError = function(event) {
+  connection.onSocketError = function (event) {
     console.log("Unable to connect to the server. Please try again.", event);
     // setDefaults()
     // chrome.runtime.reload();
   };
 
-  connection.onopen = function(event) {
+  connection.onopen = function (event) {
     console.log("Connection open", event);
   };
 
-  connection.onmessage = function(event) {
+  connection.onmessage = function (event) {
     if (event.data.newChatMessage) {
       connection.send({
         receivedChatMessage: true,
-        checkmark_id: event.data.checkmark_id
+        checkmark_id: event.data.checkmark_id,
       });
     }
   };
@@ -240,4 +240,4 @@ export default function(stream) {
   // connection.onleave = connection.onPeerStateChanged = function () {
   //   setBadgeText(connection.isInitiator ? connection.getAllParticipants().length : '')
   // }
-}
+};
