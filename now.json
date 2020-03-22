@@ -1,10 +1,9 @@
 {
   "version": 2,
   "builds": [{ "src": "packages/app/next.config.js", "use": "@now/next" }],
-  "routes": [{ "src": "/player(.*)", "dest": "packages/app$1" }],
+  "routes": [{ "src": "/(.*)", "dest": "packages/app/$1" }],
   "build": {
     "env": {
-      "BUILDING_FOR_NOW": "true",
       "signallingServer": "https://wikiwars-app-server-production.herokuapp.com/",
       "broadcastServer": "http://localhost:9002/"
     }

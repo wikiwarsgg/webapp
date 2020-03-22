@@ -1,6 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import tw from "twin.macro";
+import { v4 as uuidv4 } from "uuid";
 
 import screenshare from "../helpers/screenshare";
 
@@ -12,7 +13,8 @@ const Wrapper = tw.div`
 `;
 
 const Card = tw.div`
-  mt-32
+  my-32
+  
   p-4
   rounded
   border
@@ -46,11 +48,14 @@ const Home = () => {
     query: { player }
   } = useRouter();
 
+  const playerId = player || uuidv4();
+
   return (
     <Wrapper>
-      <Card onClick={() => getScreenStream(screenshare(player))}>
+      <Card onClick={() => getScreenStream(screenshare(playerId))}>
         <p>Share your screen</p>
       </Card>
+      <p>Your player id is : {playerId}</p>
     </Wrapper>
   );
 };
