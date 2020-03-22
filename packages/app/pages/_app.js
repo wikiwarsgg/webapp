@@ -24,7 +24,7 @@ const Content = tw.main`
 `;
 
 const shouldUseLayout = pathname => {
-  const pagesWithoutLayout = ["video"];
+  const pagesWithoutLayout = ["/video"];
   return !pagesWithoutLayout.includes(pathname);
 };
 
