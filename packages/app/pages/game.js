@@ -11,13 +11,20 @@ const Wrapper = tw.div`
 `;
 
 const Col = tw.div`
+  flex-1
   m-4
 `;
 
+const Title = tw.h2`
+  text-3xl
+`;
+
 const Game = () => {
-  const { query } = useRouter();
-  var c1 = createConnection(query.p1);
-  var c2 = createConnection(query.p2);
+  const {
+    query: { p1, p2 }
+  } = useRouter();
+  var c1 = createConnection(p1);
+  var c2 = createConnection(p2);
 
   useEffect(() => {
     c1.videosContainer = document.getElementById("player1");
@@ -27,11 +34,11 @@ const Game = () => {
   return (
     <Wrapper>
       <Col>
-        <p>Player 1</p>
+        <Title>Player 1</Title>
         <div id="player1"></div>
       </Col>
       <Col>
-        <p>Player 2</p>
+        <Title>Player 2</Title>
         <div id="player2"></div>
       </Col>
     </Wrapper>

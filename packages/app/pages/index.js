@@ -1,7 +1,27 @@
 import React from "react";
 import { useRouter } from "next/router";
+import tw from "twin.macro";
 
 import screenshare from "../helpers/screenshare";
+
+const Wrapper = tw.div`
+  flex
+  flex-col
+  justify-center
+  items-center
+`;
+
+const Card = tw.div`
+  mt-32
+  p-4
+  rounded
+  border
+  border-white
+  w-1/3
+  text-3xl
+  uppercase
+  cursor-pointer
+`;
 
 const getScreenStream = callback => {
   var displayMediaStreamConstraints = {
@@ -22,17 +42,16 @@ const getScreenStream = callback => {
 };
 
 const Home = () => {
-  const { query } = useRouter();
+  const {
+    query: { player }
+  } = useRouter();
 
   return (
-    <div className="container">
-      <main>
-        <a onClick={() => getScreenStream(screenshare(query.player))}>
-          <h3>Share your screen &rarr;</h3>
-          <p>To start a wikiwars session.</p>
-        </a>
-      </main>
-    </div>
+    <Wrapper>
+      <Card onClick={() => getScreenStream(screenshare(player))}>
+        <p>Share your screen</p>
+      </Card>
+    </Wrapper>
   );
 };
 

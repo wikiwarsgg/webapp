@@ -35,7 +35,7 @@ const App = ({ Component, pageProps }) => {
     <Wrapper>
       <Head>
         <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
         <script src="https://rtcmulticonnection.herokuapp.com/socket.io/socket.io.js" />
       </Head>
       {shouldUseLayout(pathname) && <Header />}
