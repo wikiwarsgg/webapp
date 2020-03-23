@@ -2,9 +2,16 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import tw from "twin.macro";
 
+import Timer from "../components/Timer";
 import createConnection from "../helpers/connection";
 
 const Wrapper = tw.div`
+  flex
+  flex-col
+  p-4
+`;
+
+const Row = tw.div`
   flex
   flex-row
   p-4
@@ -33,14 +40,19 @@ const Game = () => {
 
   return (
     <Wrapper>
-      <Col>
-        <Title>Player 1</Title>
-        <div id="player1"></div>
-      </Col>
-      <Col>
-        <Title>Player 2</Title>
-        <div id="player2"></div>
-      </Col>
+      <Title>
+        <Timer />
+      </Title>
+      <Row>
+        <Col>
+          <Title>Player 1</Title>
+          <div id="player1"></div>
+        </Col>
+        <Col>
+          <Title>Player 2</Title>
+          <div id="player2"></div>
+        </Col>
+      </Row>
     </Wrapper>
   );
 };
