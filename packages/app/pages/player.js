@@ -42,7 +42,7 @@ const getScreenStream = callback => {
   }
 };
 
-const Home = () => {
+const Player = () => {
   const {
     query: { player }
   } = useRouter();
@@ -59,4 +59,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Player;

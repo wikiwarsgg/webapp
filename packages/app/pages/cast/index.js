@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import tw from "twin.macro";
 
 import Timer from "../../components/Timer";
-import createConnection from "../helpers/connection";
+import createConnection from "../../helpers/connection";
 
 const Wrapper = tw.div`
   flex
@@ -26,9 +26,9 @@ const Title = tw.h2`
   text-3xl
 `;
 
-const Game = () => {
+const Cast = () => {
   const {
-    query: { p1, p2 }
+    query: { p1, p2, p1name, p2name }
   } = useRouter();
 
   if (!p1 || !p2) {
@@ -50,15 +50,15 @@ const Game = () => {
       </div>
       <Row>
         <Col>
-          <Title>Player 1</Title>
+          <Title>{p1name || "Player 1"}</Title>
           <div id="player1"></div>
         </Col>
         <Col>
-          <Title>Player 2</Title>
+          <Title>{p2name || "Player 2"}</Title>
           <div id="player2"></div>
         </Col>
       </Row>
     </Wrapper>
   );
 };
-export default Game;
+export default Cast;
