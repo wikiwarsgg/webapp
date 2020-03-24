@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import tw from "twin.macro";
 
-import Timer from "../components/Timer";
+import Timer from "../../components/Timer";
 import createConnection from "../helpers/connection";
 
 const Wrapper = tw.div`
@@ -30,6 +30,11 @@ const Game = () => {
   const {
     query: { p1, p2 }
   } = useRouter();
+
+  if (!p1 || !p2) {
+    return <div>Please set p1 and p2 in the URL.</div>;
+  }
+
   var c1 = createConnection(p1);
   var c2 = createConnection(p2);
 
@@ -40,9 +45,9 @@ const Game = () => {
 
   return (
     <Wrapper>
-      <Title>
+      <div>
         <Timer />
-      </Title>
+      </div>
       <Row>
         <Col>
           <Title>Player 1</Title>
