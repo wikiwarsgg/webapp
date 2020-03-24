@@ -2,11 +2,16 @@ import React from "react";
 import Head from "next/head";
 import tw from "twin.macro";
 import { useRouter } from "next/router";
+import { config } from "@fortawesome/fontawesome-svg-core";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 import "tailwindcss/dist/base.css";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+
+config.autoAddCss = false;
+
 import "../styles.css";
 
 const Wrapper = tw.div`
@@ -24,7 +29,7 @@ const Content = tw.main`
 `;
 
 const shouldUseLayout = pathname => {
-  const pagesWithoutLayout = ["/video"];
+  const pagesWithoutLayout = ["/cast/single"];
   return !pagesWithoutLayout.includes(pathname);
 };
 
