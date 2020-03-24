@@ -1,7 +1,17 @@
 {
   "version": 2,
   "builds": [{ "src": "packages/app/next.config.js", "use": "@now/next" }],
-  "routes": [{ "src": "/(.*)", "dest": "packages/app/$1" }],
+  "routes": [
+    { "src": "/(.*)", "dest": "packages/app/$1" },
+    {
+      "src": "^/service-worker.js$",
+      "dest": "/_next/static/service-worker.js",
+      "headers": {
+        "cache-control": "public, max-age=43200, immutable",
+        "Service-Worker-Allowed": "/"
+      }
+    }
+  ],
   "build": {
     "env": {
       "signallingServer": "https://wikiwars-app-server-production.herokuapp.com/",
