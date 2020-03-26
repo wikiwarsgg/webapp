@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 import tw from "twin.macro";
 import { v4 as uuidv4 } from "uuid";
-
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCopy } from "@fortawesome/free-solid-svg-icons";
 import screenshare from "../helpers/screenshare";
 
 const Wrapper = tw.div`
@@ -18,6 +20,8 @@ const Card = tw.div`
   rounded
   border
   border-white
+  hover:bg-white
+  hover:text-wikiwars-blue
   text-3xl
   uppercase
   cursor-pointer
@@ -58,12 +62,15 @@ const getScreenStream = callback => {
   }
 };
 
+const randomPlayerId = uuidv4();
+
 const Player = () => {
+  const [copied, setCopied] = useState(false);
   const {
     query: { player }
   } = useRouter();
 
-  const playerId = player || uuidv4();
+  const playerId = player || randomPlayerId;
 
   return (
     <Wrapper>
@@ -96,7 +103,20 @@ const Player = () => {
           </p>
         </Col>
       </Row>
-      <b style={{ marginTop: "2rem" }}>Your player id is : {playerId}</b>
+
+      <p tw="mt-4">
+        Your player id is :
+        <CopyToClipboard
+          tw="p-2 cursor-pointer hover:bg-white hover:text-wikiwars-blue"
+          text={playerId}
+          onCopy={() => setCopied(true)}
+        >
+          <span>
+            {playerId}
+            <FontAwesomeIcon tw="ml-2" icon={faCopy} />
+          </span>
+        </CopyToClipboard>
+      </p>
     </Wrapper>
   );
 };

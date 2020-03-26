@@ -27,31 +27,41 @@ const Col = tw.div`
 
 const Link = tw.a`
   p-2
+  hover:bg-white
+  hover:text-wikiwars-blue
 `;
 
 export default () => (
   <Wrapper>
     <footer>
       <Row>
-        <Col tw="text-left">Wikiwars © YES WE CAPS</Col>
+        <Col tw="text-left">
+          <a
+            tw="hover:bg-white hover:text-wikiwars-blue"
+            href="https://wikiwars.gg"
+            target="_blank"
+          >
+            Wikiwars © YES WE CAPS
+          </a>
+        </Col>
         <Col></Col>
         <Col tw="text-right">
-          <Link href="https://facebook.com/">
+          <Link href="https://facebook.com/wikiwarsgg" target="_blank">
             <FontAwesomeIcon icon={faFacebook} />
           </Link>
-          <Link href="https://twitter.com/wikiwarsgg">
+          <Link href="https://twitter.com/wikiwarsgg" target="_blank">
             <FontAwesomeIcon icon={faTwitter} />
           </Link>
-          <Link href="https://facebook.com/wikiwarsgg">
+          <Link href="https://facebook.com/wikiwarsgg" target="_blank">
             <FontAwesomeIcon icon={faFacebook} />
           </Link>
-          <Link href="https://instagram.com/wikiwarsgg">
+          <Link href="https://instagram.com/wikiwarsgg" target="_blank">
             <FontAwesomeIcon icon={faInstagram} />
           </Link>
-          <Link href="https://github.com/wikiwarsgg/website">
+          <Link href="https://github.com/wikiwarsgg/website" target="_blank">
             <FontAwesomeIcon icon={faGithub} />
           </Link>
-          <Link href="mailto:hello@wikiwars.gg">
+          <Link href="mailto:hello@wikiwars.gg" target="_blank">
             <FontAwesomeIcon icon={faEnvelope} />
           </Link>
         </Col>
