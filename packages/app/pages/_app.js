@@ -41,6 +41,32 @@ const App = ({ Component, pageProps }) => {
       <Head>
         <title>Play Wikiwars!</title>
         <link rel="icon" href="/favicon.png" />
+        <meta
+          name="keywords"
+          content="Wikiwars,Wikipedia,Events,Paris,France"
+        />
+        <meta
+          name="description"
+          content="Des événements décalés, fun et compétitifs sur... Wikipédia!"
+        />
+        <meta name="author" content="Wikiwars" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Wikiwars" />
+        <meta
+          name="twitter:description"
+          content="Des événements décalés, fun et compétitifs sur... Wikipédia!"
+        />
+        <meta name="twitter:site" content="@wikiwarsgg" />
+        <meta name="og:title" content="Wikiwars" />
+        <meta
+          name="og:description"
+          content="Des événements décalés, fun et compétitifs sur... Wikipédia!"
+        />
+        <meta name="og:url" content="https://wikiwars.gg" />
+        <meta name="og:site_name" content="Wikiwars" />
+        <meta name="og:locale" content="fr_FR" />
+        <meta name="fb:app_id" content="365853070100963" />
+        <meta name="og:type" content="website" />
         <script src="https://rtcmulticonnection.herokuapp.com/socket.io/socket.io.js" />
       </Head>
       {shouldUseLayout(pathname) && <Header />}

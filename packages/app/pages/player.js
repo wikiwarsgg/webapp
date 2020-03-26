@@ -18,10 +18,26 @@ const Card = tw.div`
   rounded
   border
   border-white
-  w-1/3
   text-3xl
   uppercase
   cursor-pointer
+`;
+
+const Row = tw.div`
+  flex
+  flex-col
+  md:flex-row
+  justify-center
+`;
+
+const Col = tw.div`
+  w-1
+  md:w-1/4
+  m-12
+`;
+
+const Title = tw.h2`
+  text-3xl
 `;
 
 const getScreenStream = callback => {
@@ -54,7 +70,33 @@ const Player = () => {
       <Card onClick={() => getScreenStream(screenshare(playerId))}>
         <p>Share your screen</p>
       </Card>
-      <p>Your player id is : {playerId}</p>
+      <Row>
+        <Col>
+          <Title>What's this ?</Title>
+          <p>You have been invited yo play Wikiwars!</p>
+          <p>
+            By clicking on the button above, you will share your screen with the
+            game masters using peer-2-peer technology (your video won't hit our
+            servers, promise!).
+          </p>
+        </Col>
+        <Col>
+          <Title>How To ?</Title>
+          <p>
+            For a better experience, we recommend using Google Chrome and
+            sharing only one Tab (the one you use for Wikipedia!). When using
+            Firefox or Safari, simply share your browser window.
+          </p>
+        </Col>
+        <Col>
+          <Title>Say Hello!</Title>
+          <p>
+            This app is in early development stage. We'd love to hear your
+            feedback -- and we are happy to help if you encounter an issue !
+          </p>
+        </Col>
+      </Row>
+      <b style={{ marginTop: "2rem" }}>Your player id is : {playerId}</b>
     </Wrapper>
   );
 };

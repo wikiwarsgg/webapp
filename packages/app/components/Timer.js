@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import Countdown, { zeroPad } from "react-countdown";
 import styled from "@emotion/styled/macro";
 import tw from "twin.macro";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCog } from "@fortawesome/free-solid-svg-icons";
 
 const Button = styled.button`
   ${tw`
