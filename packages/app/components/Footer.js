@@ -46,9 +46,6 @@ export default () => (
         </Col>
         <Col></Col>
         <Col tw="text-right">
-          <Link href="https://facebook.com/wikiwarsgg" target="_blank">
-            <FontAwesomeIcon icon={faFacebook} />
-          </Link>
           <Link href="https://twitter.com/wikiwarsgg" target="_blank">
             <FontAwesomeIcon icon={faTwitter} />
           </Link>

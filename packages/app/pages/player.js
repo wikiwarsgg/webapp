@@ -88,7 +88,7 @@ const Player = () => {
           </p>
         </Col>
         <Col>
-          <Title>How To ?</Title>
+          <Title>How to...</Title>
           <p>
             For a better experience, we recommend using Google Chrome and
             sharing only one Tab (the one you use for Wikipedia!). When using
@@ -96,7 +96,7 @@ const Player = () => {
           </p>
         </Col>
         <Col>
-          <Title>Say Hello!</Title>
+          <Title>Say Hi!</Title>
           <p>
             This app is in early development stage. We'd love to hear your
             feedback -- and we are happy to help if you encounter an issue !
@@ -105,7 +105,7 @@ const Player = () => {
       </Row>
 
       <p tw="mt-4">
-        Your player id is :
+        Your player id is :&nbsp;
         <CopyToClipboard
           tw="p-2 cursor-pointer hover:bg-white hover:text-wikiwars-blue"
           text={playerId}
