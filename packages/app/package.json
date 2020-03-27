@@ -20,6 +20,7 @@
     "react-copy-to-clipboard": "5.0.2",
     "react-countdown": "2.2.1",
     "react-dom": "16.13.1",
+    "react-konami-code": "1.4.2",
     "rtcmulticonnection": "3.6.9",
     "socket.io-client": "2.3.0",
     "uuid": "7.0.2"

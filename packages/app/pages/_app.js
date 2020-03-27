@@ -3,6 +3,7 @@ import Head from "next/head";
 import tw from "twin.macro";
 import { useRouter } from "next/router";
 import { config } from "@fortawesome/fontawesome-svg-core";
+import Konami from "react-konami-code";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -67,13 +68,14 @@ const App = ({ Component, pageProps }) => {
         <meta name="og:locale" content="fr_FR" />
         <meta name="fb:app_id" content="365853070100963" />
         <meta name="og:type" content="website" />
-        <script src="https://rtcmulticonnection.herokuapp.com/socket.io/socket.io.js" />
+        <script src="https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js" />
       </Head>
       {shouldUseLayout(pathname) && <Header />}
       <Content>
         <Component {...pageProps} />
       </Content>
       {shouldUseLayout(pathname) && <Footer />}
+      <Konami action={() => alert("Nice Job!")} />
     </Wrapper>
   );
 };
