@@ -22,7 +22,6 @@
     "react-dom": "16.13.1",
     "react-konami-code": "1.4.2",
     "rtcmulticonnection": "3.6.9",
-    "socket.io-client": "2.3.0",
     "uuid": "7.0.2"
   },
   "husky": {

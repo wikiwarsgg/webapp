@@ -5,7 +5,9 @@ import { v4 as uuidv4 } from "uuid";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy } from "@fortawesome/free-solid-svg-icons";
-import screenshare from "../helpers/screenshare";
+
+import screenshare from "../../helpers/screenshare";
+import getStream from "../../helpers/stream";
 
 const Wrapper = tw.div`
   flex
@@ -44,27 +46,9 @@ const Title = tw.h2`
   text-3xl
 `;
 
-const getScreenStream = callback => {
-  var displayMediaStreamConstraints = {
-    video: true // currently you need to set {true} on Chrome
-  };
-
-  if (navigator.mediaDevices.getDisplayMedia) {
-    navigator.mediaDevices
-      .getDisplayMedia(displayMediaStreamConstraints)
-      .then(callback)
-      .catch(callback);
-  } else {
-    navigator
-      .getDisplayMedia(displayMediaStreamConstraints)
-      .then(callback)
-      .catch(callback);
-  }
-};
-
 const randomPlayerId = uuidv4();
 
-const Player = () => {
+const ShareScreen = () => {
   const [copied, setCopied] = useState(false);
   const {
     query: { player }
@@ -74,7 +58,7 @@ const Player = () => {
 
   return (
     <Wrapper>
-      <Card onClick={() => getScreenStream(screenshare(playerId))}>
+      <Card onClick={() => getStream("screen", screenshare(playerId))}>
         <p>Share your screen</p>
       </Card>
       <Row>
@@ -121,4 +105,4 @@ const Player = () => {
   );
 };
 
-export default Player;
+export default ShareScreen;
