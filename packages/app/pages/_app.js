@@ -30,7 +30,7 @@ const Content = tw.main`
 `;
 
 const shouldUseLayout = pathname => {
-  const pagesWithoutLayout = ["/cast/single"];
+  const pagesWithoutLayout = ["/embed/single"];
   return !pagesWithoutLayout.includes(pathname);
 };
 
