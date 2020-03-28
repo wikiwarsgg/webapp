@@ -5,14 +5,14 @@ import createConnection from "../../helpers/connection";
 
 const Video = () => {
   const {
-    query: { player }
+    query: { id }
   } = useRouter();
 
-  if (!player) {
+  if (!id) {
     return <div>Please set player in the URL.</div>;
   }
 
-  const conn = createConnection(player);
+  const conn = createConnection(id);
 
   useEffect(() => {
     conn.videosContainer = document.getElementById("player1");

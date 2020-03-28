@@ -34,10 +34,10 @@ const randomPlayerId = uuidv4();
 const Cam = () => {
   const [copied, setCopied] = useState(false);
   const {
-    query: { player }
+    query: { id }
   } = useRouter();
 
-  const playerId = player || randomPlayerId;
+  const playerId = id || randomPlayerId;
 
   return (
     <Wrapper>
