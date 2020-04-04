@@ -24,17 +24,6 @@
     "rtcmulticonnection": "3.6.9",
     "uuid": "7.0.2"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "lint-staged": {
-    "*.{js,ts,tsx,css,json,md}": [
-      "prettier --write"
-    ]
-  },
   "devDependencies": {
     "@emotion/babel-preset-css-prop": "10.0.27",
     "@emotion/core": "10.0.28",
