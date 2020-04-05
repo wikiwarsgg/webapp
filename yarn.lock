@@ -8598,10 +8598,10 @@ react-is@^16.12.0, react-is@^16.8.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-konami-code@1.4.2:
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/react-konami-code/-/react-konami-code-1.4.2.tgz#91e157ab6f2b07a99e8aa022f905563c0303a79e"
-  integrity sha512-lSOSF1HVWusZM5OPogGEyqNnkbRdlxzoNTxfZmTtBTJ+gxLzHsdEK17RwQgFWQNkL98Dt7iiUB9OKTUfO25ffQ==
+react-konami-code@1.4.3:
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/react-konami-code/-/react-konami-code-1.4.3.tgz#28b6db3286ebf49e4a6d8f9c3f48c7a7ec450e9a"
+  integrity sha512-OQDW8CN8ruB/0VTmy1I2V5aoK0ycjZmJk5u781VwWKl7yt/RjOyAX3G6F+z28ud6CBrwzJBrZjjXp6kgyog9Tg==
   dependencies:
     react "^16.3.1"
     react-dom "^16.3.3"
