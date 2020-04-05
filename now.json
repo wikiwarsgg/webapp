@@ -4,8 +4,7 @@
   "routes": [{ "src": "/(.*)", "dest": "packages/app/$1" }],
   "build": {
     "env": {
-      "signallingServer": "https://wikiwars-app-server-production.herokuapp.com/",
-      "broadcastServer": "http://localhost:9002/"
+      "SOCKETIO_SERVER": "https://wikiwars-app-server-production.herokuapp.com/"
     }
   }
 }

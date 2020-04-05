@@ -1,8 +1,9 @@
 require("dotenv").config();
 
+const { SOCKETIO_SERVER } = process.env;
+
 module.exports = {
   env: {
-    signallingServer: process.env.signallingServer,
-    broadcastServer: process.env.broadcastServer
+    SOCKETIO_SERVER
   }
 };
