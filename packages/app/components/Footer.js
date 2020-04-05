@@ -2,6 +2,7 @@ import React from "react";
 import tw from "twin.macro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faDiscord,
   faFacebook,
   faGithub,
   faInstagram,
@@ -57,6 +58,9 @@ export default () => (
           </Link>
           <Link href="https://github.com/wikiwarsgg/website" target="_blank">
             <FontAwesomeIcon icon={faGithub} />
+          </Link>
+          <Link href="https://discordapp.com/invite/W6kTp6C" target="_blank">
+            <FontAwesomeIcon icon={faDiscord} />
           </Link>
           <Link href="mailto:hello@wikiwars.gg" target="_blank">
             <FontAwesomeIcon icon={faEnvelope} />
