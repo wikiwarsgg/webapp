@@ -48,7 +48,7 @@ const Title = tw.h2`
 
 const randomPlayerId = uuidv4();
 
-const ShareScreen = () => {
+const Share = () => {
   const [copied, setCopied] = useState(false);
   const {
     query: { id }
@@ -58,17 +58,26 @@ const ShareScreen = () => {
 
   return (
     <Wrapper>
-      <Card onClick={() => getStream("screen", screenshare(playerId))}>
+      <Card
+        onClick={() => getStream("screen", screenshare(playerId))}
+        tw="mb-4"
+      >
         <p>Share your Screen</p>
+      </Card>
+      <Card
+        onClick={() => getStream("webcam", screenshare(`${playerId}-cam`))}
+        tw="mt-4 text-xl"
+      >
+        <p>Share your Webcam</p>
       </Card>
       <Row>
         <Col>
           <Title>What's this ?</Title>
           <p>You have been invited yo play Wikiwars!</p>
           <p>
-            By clicking on the button above, you will share your screen with the
-            game masters using peer-2-peer technology (your video won't hit our
-            servers, promise!).
+            By clicking on the button above, you will share your screen and/or
+            your webcam with the game masters using peer-2-peer technology (your
+            video won't hit our servers).
           </p>
         </Col>
         <Col>
@@ -108,4 +117,4 @@ const ShareScreen = () => {
   );
 };
 
-export default ShareScreen;
+export default Share;

@@ -9,7 +9,7 @@ const Video = () => {
   } = useRouter();
 
   if (!id) {
-    return <div>Please set player in the URL.</div>;
+    return <div>Please set id in the URL.</div>;
   }
 
   const conn = createConnection(id);
