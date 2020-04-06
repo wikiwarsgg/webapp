@@ -16,6 +16,6 @@
     "socket.io-server": "1.0.0"
   },
   "devDependencies": {
-    "@zeit/ncc": "0.21.1"
+    "@zeit/ncc": "0.22.1"
   }
 }
