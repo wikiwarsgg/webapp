@@ -22,7 +22,7 @@
     "react-dom": "16.13.1",
     "react-konami-code": "1.4.3",
     "rtcmulticonnection": "3.6.9",
-    "uuid": "7.0.2"
+    "uuid": "7.0.3"
   },
   "devDependencies": {
     "@emotion/babel-preset-css-prop": "10.0.27",
