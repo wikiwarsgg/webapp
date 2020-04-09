@@ -1,6 +1,6 @@
 const CONSTRAINTS = {
-  webcam: { audio: true, video: true },
-  screen: { video: true }
+  webcam: { audio: false, video: true },
+  screen: { audio: false, video: true }
 };
 
 export default (type, callback) => {
