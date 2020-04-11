@@ -3,10 +3,11 @@ module.exports = {
     "config:base",
     ":automergePatch",
     ":automergePr",
-    ":disableDigestUpdates",
+    ":disableDigestUpdates"
   ],
   commitMessagePrefix: "⬆️",
   platform: "github",
-  repositories: ["wikiwarsgg/webapp"],
-  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  onboarding: false,
+  requireConfig: false,
+  repositories: ["wikiwarsgg/webapp"]
 };
