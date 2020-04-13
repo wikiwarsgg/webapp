@@ -54,7 +54,7 @@ export default roomId => stream => {
 
   connection.enableLogs = false;
   connection.session = {
-    audio: true,
+    audio: false,
     video: true,
     data: true,
     oneway: true

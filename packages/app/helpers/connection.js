@@ -1,7 +1,7 @@
 import RTCMultiConnection from "rtcmulticonnection";
 import screenshare from "./screenshare";
 
-const createConnection = (screenId) => {
+const createConnection = screenId => {
   const connection = new RTCMultiConnection(screenId);
   connection.socketURL =
     "https://wikiwars-app-server-production.herokuapp.com/";
@@ -12,24 +12,24 @@ const createConnection = (screenId) => {
 
   connection.enableLogs = true;
   connection.session = {
-    audio: true,
+    audio: false,
     video: true,
     data: true,
-    oneway: true,
+    oneway: true
   };
 
   // www.rtcmulticonnection.org/docs/sdpConstraints/
   connection.sdpConstraints.mandatory = {
     OfferToReceiveAudio: true,
-    OfferToReceiveVideo: true,
+    OfferToReceiveVideo: true
   };
 
   connection.optionalArgument = {
     optional: [],
-    mandatory: {},
+    mandatory: {}
   };
 
-  connection.onstatechange = function (state) {
+  connection.onstatechange = function(state) {
     if (state.name === "room-not-available") {
       console.log(
         "Screen share session is closed or paused. You will join automatically when share session is resumed."
@@ -37,20 +37,20 @@ const createConnection = (screenId) => {
     }
   };
 
-  connection.onstreamid = (event) => {
+  connection.onstreamid = event => {
     console.log("Remote peer is about to send his screen.");
   };
 
-  connection.onSocketDisconnect = (event) => {
+  connection.onSocketDisconnect = event => {
     // alert('Connection to the server is closed.');
     if (connection.getAllParticipants().length > 0) return;
     location.reload();
   };
 
-  connection.onSocketError = (event) => {
+  connection.onSocketError = event => {
     alert("Unable to connect to the server. Please try again.");
 
-    setTimeout(function () {
+    setTimeout(function() {
       location.reload();
     }, 1000);
   };
@@ -58,11 +58,11 @@ const createConnection = (screenId) => {
   function checkPresence() {
     console.log("Checking room: " + screenId);
 
-    connection.checkPresence(screenId, function (isRoomExist, roomid, extra) {
+    connection.checkPresence(screenId, function(isRoomExist, roomid, extra) {
       if (isRoomExist === false) {
         console.log("Room does not exist: " + screenId);
 
-        setTimeout(function () {
+        setTimeout(function() {
           console.log("Checking room: " + screenId);
           setTimeout(checkPresence, 1000);
         }, 4000);
@@ -80,7 +80,7 @@ const createConnection = (screenId) => {
   }
 
   var dontDuplicate = {};
-  connection.onPeerStateChanged = (event) => {
+  connection.onPeerStateChanged = event => {
     if (!connection.getRemoteStreams(screenId).length) {
       if (event.signalingState === "have-remote-offer") {
         console.log("Received WebRTC offer from: " + screenId);
