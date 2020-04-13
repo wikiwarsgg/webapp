@@ -9105,7 +9105,14 @@ rsvp@^4.8.4:
   resolved "https://registry.yarnpkg.com/rsvp/-/rsvp-4.8.5.tgz#c8f155311d167f68f21e168df71ec5b083113734"
   integrity sha512-nfMOlASu9OnRJo1mbEk2cz0D56a1MBNrJ7orjRZQG10XDyuvwksKbuXNp6qa+kbn839HwjwhBzhFmdsaEAfauA==
 
-rtcmulticonnection-server@1.3.1, rtcmulticonnection-server@latest:
+rtcmulticonnection-server@1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/rtcmulticonnection-server/-/rtcmulticonnection-server-1.3.2.tgz#fd37b2ee60b838f6f9390dce9a98b93ed6c8ba0f"
+  integrity sha512-1frM5JAfzlamlPtPpBKlVXqanlKijQpS0a3dwFWYwlXi/Y77eLj9UxKbnIjAFqLAD/GmKRdlBIjU5rVa0mSkTg==
+  dependencies:
+    socket.io latest
+
+rtcmulticonnection-server@latest:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/rtcmulticonnection-server/-/rtcmulticonnection-server-1.3.1.tgz#d8484740191e8f4fcabe0d3fc41f0132348cb3f2"
   integrity sha512-NsAKCYJalNBjphPHNe5h/hAvt9nUeY3U9ZHqa/zHFsKFqCX0YS2a5Uwhgphnz4WVEeKDUuOz3YOKJZxYJgdRxA==
