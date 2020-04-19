@@ -9726,10 +9726,10 @@ rtcmulticonnection-server@latest:
   dependencies:
     socket.io latest
 
-rtcmulticonnection@3.6.9:
-  version "3.6.9"
-  resolved "https://registry.yarnpkg.com/rtcmulticonnection/-/rtcmulticonnection-3.6.9.tgz#876167944ada7f2712456a5316444c65da3f41c8"
-  integrity sha512-7TEjH4AVJXkoQZnK/3XLrR9M6Hi7xhiWGLELvFtpMC9d8nOsHb1p5lol89Hgs978NueoC2f6sF55qNAMtdLbzw==
+rtcmulticonnection@3.7.0:
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/rtcmulticonnection/-/rtcmulticonnection-3.7.0.tgz#b7da320c29a46285e394dfe5d203f1f83f267084"
+  integrity sha512-DkkvITocXd8KKPWxCCRW+zXA5uVouHzXMOF3SivJPJOICPm+k4VKaosU7Mdu/JnlLPHeZl9kHMtf44LOo0zEHA==
   dependencies:
     canvas-designer latest
     detectrtc latest
