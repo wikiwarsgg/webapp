@@ -16,6 +16,7 @@
     "@fortawesome/react-fontawesome": "0.1.9",
     "dotenv": "8.2.0",
     "next": "9.3.5",
+    "obs-websocket-js": "4.0.1",
     "react": "16.13.1",
     "react-copy-to-clipboard": "5.0.2",
     "react-countdown": "2.2.1",
