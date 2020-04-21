@@ -6,9 +6,8 @@ const obs = new OBSWebSocket();
 obs.on("error", (err) => {
   console.error("socket error:", err);
 });
-obs.connect();
 
-const Card = tw.div`
+const Button = tw.div`
   my-4
   p-2
   rounded
@@ -20,117 +19,138 @@ const Card = tw.div`
   cursor-pointer
 `;
 
-const Deck = () => {
-  useEffect(() => {
-    const init = async () => {
-      try {
-        await getSources();
-      } catch (e) {
-        console.error(e);
-      }
-    };
-    init();
-  }, []);
-  const [player1, setplayer1] = useState("");
-  const [score1, setscore1] = useState("");
-  const [player2, setplayer2] = useState("");
-  const [score2, setscore2] = useState("");
-  const [depart, setdepart] = useState("");
-  const [arrivee, setarrivee] = useState("");
-  const [game, setGame] = useState("");
+const getSources = async () => {
+  const {
+    sourceSettings: { text: player1 },
+  } = await obs.send("GetSourceSettings", {
+    sourceName: "PLAYER 1",
+  });
+  const {
+    sourceSettings: { text: player2 },
+  } = await obs.send("GetSourceSettings", {
+    sourceName: "PLAYER 2",
+  });
+  const {
+    sourceSettings: { text: score1 },
+  } = await obs.send("GetSourceSettings", {
+    sourceName: "SCORE 1",
+  });
+  const {
+    sourceSettings: { text: score2 },
+  } = await obs.send("GetSourceSettings", {
+    sourceName: "SCORE 2",
+  });
+  const {
+    sourceSettings: { text: depart },
+  } = await obs.send("GetSourceSettings", {
+    sourceName: "DEPART",
+  });
+  const {
+    sourceSettings: { text: arrivee },
+  } = await obs.send("GetSourceSettings", {
+    sourceName: "ARRIVEE",
+  });
 
-  const getSources = async () => {
-    const {
-      sourceSettings: { text: sourcePlayer1 },
-    } = await obs.send("GetSourceSettings", {
+  return {
+    player1,
+    player2,
+    score1,
+    score2,
+    depart,
+    arrivee,
+  };
+};
+
+const setSources = async (sources) => {
+  console.log(sources);
+  try {
+    const res = await obs.send("SetSourceSettings", {
       sourceName: "PLAYER 1",
+      sourceSettings: { text: sources.player1 },
     });
-    setplayer1(sourcePlayer1);
-    const {
-      sourceSettings: { text: sourcePlayer2 },
-    } = await obs.send("GetSourceSettings", {
+    console.log(res);
+    await obs.send("SetSourceSettings", {
       sourceName: "PLAYER 2",
+      sourceSettings: { text: sources.player2 },
     });
-    setplayer2(sourcePlayer2);
 
-    const {
-      sourceSettings: { text: sourceScore1 },
-    } = await obs.send("GetSourceSettings", {
+    await obs.send("SetSourceSettings", {
       sourceName: "SCORE 1",
+      sourceSettings: { text: sources.score1 },
     });
-    setscore1(sourceScore1);
-    const {
-      sourceSettings: { text: sourceScore2 },
-    } = await obs.send("GetSourceSettings", {
+    await obs.send("SetSourceSettings", {
       sourceName: "SCORE 2",
+      sourceSettings: { text: sources.score2 },
     });
-    setscore2(sourceScore2);
 
-    const {
-      sourceSettings: { text: sourceDepart },
-    } = await obs.send("GetSourceSettings", {
+    await obs.send("SetSourceSettings", {
       sourceName: "DEPART",
+      sourceSettings: { text: sources.depart },
     });
-    setdepart(sourceDepart);
-    const {
-      sourceSettings: { text: sourceArrivee },
-    } = await obs.send("GetSourceSettings", {
+    await obs.send("SetSourceSettings", {
       sourceName: "ARRIVEE",
+      sourceSettings: { text: sources.arrivee },
     });
-    setarrivee(sourceArrivee);
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+const resetTimer = async () => {
+  await obs.send("SetBrowserSourceProperties", {
+    source: "Browser TIMER",
+    width: 251,
+  });
+  setTimeout(
+    async () =>
+      await obs.send("SetBrowserSourceProperties", {
+        source: "Browser TIMER",
+        width: 250,
+      }),
+    100
+  );
+};
+
+const Deck = () => {
+  const [isConnected, setConnection] = useState(false);
+  const [items, setItems] = useState({
+    player1: "",
+    player2: "",
+    score1: "",
+    score2: "",
+    depart: "",
+    arrivee: "",
+  });
+  const initConnection = async () => {
+    await obs.connect();
+    setConnection(true);
   };
 
-  const setSources = async () => {
-    try {
-      await obs.send("SetSourceSettings", {
-        sourceName: "PLAYER 1",
-        sourceSettings: { text: player1 },
-      });
-      await obs.send("SetSourceSettings", {
-        sourceName: "PLAYER 2",
-        sourceSettings: { text: player2 },
-      });
-
-      await obs.send("SetSourceSettings", {
-        sourceName: "SCORE 1",
-        sourceSettings: { text: score1 },
-      });
-      await obs.send("SetSourceSettings", {
-        sourceName: "SCORE 2",
-        sourceSettings: { text: score2 },
-      });
-
-      await obs.send("SetSourceSettings", {
-        sourceName: "DEPART",
-        sourceSettings: { text: depart },
-      });
-      await obs.send("SetSourceSettings", {
-        sourceName: "ARRIVEE",
-        sourceSettings: { text: arrivee },
-      });
-    } catch (e) {
-      console.error(e);
+  useEffect(() => {
+    if (isConnected) {
+      const init = async () => {
+        try {
+          const sources = await getSources();
+          setItems(sources);
+        } catch (e) {
+          console.error(e);
+        }
+      };
+      init();
     }
-  };
+  }, [isConnected]);
 
-  const resetTimer = async () => {
-    await obs.send("SetBrowserSourceProperties", {
-      source: "Browser TIMER",
-      width: 251,
-    });
-    setTimeout(
-      async () =>
-        await obs.send("SetBrowserSourceProperties", {
-          source: "Browser TIMER",
-          width: 250,
-        }),
-      100
+  if (!isConnected) {
+    return (
+      <div tw="w-5/6 mx-auto flex flex-row justify-center">
+        <Button onClick={initConnection}>CONNECT</Button>
+      </div>
     );
-  };
+  }
 
   return (
     <>
-      <div tw="w-5/6 mx-auto flex flex-row">
+      <div tw="w-5/6 mx-auto flex flex-row justify-center">
         <div tw="w-1/6 px-2">
           <div tw="mb-4">
             <label tw="block text-sm font-bold mb-2" htmlFor="player1">
@@ -141,8 +161,8 @@ const Deck = () => {
               id="player1"
               type="text"
               placeholder=""
-              value={player1}
-              onChange={(e) => setplayer1(e.target.value)}
+              value={items.player1}
+              onChange={(e) => setItems({ ...items, player1: e.target.value })}
             />
           </div>
           <div tw="mb-4">
@@ -154,8 +174,8 @@ const Deck = () => {
               id="player2"
               type="text"
               placeholder=""
-              value={player2}
-              onChange={(e) => setplayer2(e.target.value)}
+              value={items.player2}
+              onChange={(e) => setItems({ ...items, player2: e.target.value })}
             />
           </div>
         </div>
@@ -169,8 +189,8 @@ const Deck = () => {
               id="score1"
               type="number"
               placeholder="0"
-              value={score1}
-              onChange={(e) => setscore1(e.target.value)}
+              value={items.score1}
+              onChange={(e) => setItems({ ...items, score1: e.target.value })}
             />
           </div>
           <div tw="mb-4">
@@ -182,8 +202,8 @@ const Deck = () => {
               id="score2"
               type="number"
               placeholder="0"
-              value={score2}
-              onChange={(e) => setscore2(e.target.value)}
+              value={items.score2}
+              onChange={(e) => setItems({ ...items, score2: e.target.value })}
             />
           </div>
         </div>
@@ -197,8 +217,8 @@ const Deck = () => {
               id="depart"
               type="text"
               placeholder=""
-              value={depart}
-              onChange={(e) => setdepart(e.target.value)}
+              value={items.depart}
+              onChange={(e) => setItems({ ...items, depart: e.target.value })}
             />
           </div>
           <div tw="mb-4">
@@ -210,18 +230,18 @@ const Deck = () => {
               id="arrivee"
               type="text"
               placeholder=""
-              value={arrivee}
-              onChange={(e) => setarrivee(e.target.value)}
+              value={items.arrivee}
+              onChange={(e) => setItems({ ...items, arrivee: e.target.value })}
             />
           </div>
         </div>
       </div>
 
       <div tw="w-full max-w-xs mx-auto">
-        <Card onClick={setSources}>SET</Card>
+        <Button onClick={() => setSources(items)}>SET</Button>
       </div>
       <div tw="w-full max-w-xs mx-auto">
-        <Card onClick={resetTimer}>RESET TIMER</Card>
+        <Button onClick={resetTimer}>RESET TIMER</Button>
       </div>
     </>
   );
