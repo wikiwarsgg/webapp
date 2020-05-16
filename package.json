@@ -16,7 +16,7 @@
     "conventional-changelog-gitmoji": "0.2.5",
     "husky": "4.2.5",
     "jest": "25.5.4",
-    "lerna": "3.20.2",
+    "lerna": "3.21.0",
     "lint-staged": "10.2.2",
     "prettier": "2.0.5",
     "ts-jest": "25.4.0",
