@@ -10,7 +10,7 @@
     "test": "lerna run test"
   },
   "devDependencies": {
-    "@commitlint/cli": "8.3.5",
+    "@commitlint/cli": "9.0.1",
     "@types/node": "13.13.6",
     "@types/react": "16.9.35",
     "conventional-changelog-gitmoji": "0.2.5",
