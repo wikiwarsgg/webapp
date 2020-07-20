@@ -1,6 +1,6 @@
 on:
   schedule:
-    - cron: "0 8 * * *"
+    - cron: "0 8 * * 0"
 name: Daily Jobs
 jobs:
   renovate:
@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run Renovate
-        uses: vidavidorra/github-action-renovate@v1.0.5
+        uses: renovatebot/github-action@v1.0.0
         with:
           configurationFile: renovate.config.js
           token: ${{ secrets.RENOVATE_TOKEN }}
