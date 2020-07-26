@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "9.0.1",
-    "@types/node": "13.13.14",
+    "@types/node": "13.13.15",
     "@types/react": "16.9.38",
     "conventional-changelog-gitmoji": "0.2.5",
     "husky": "4.2.5",
