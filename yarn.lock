@@ -8519,10 +8519,10 @@ object.values@^1.1.0:
     function-bind "^1.1.1"
     has "^1.0.3"
 
-obs-websocket-js@4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/obs-websocket-js/-/obs-websocket-js-4.0.1.tgz#d4c756f0e67abae8109f692ad81152129965890a"
-  integrity sha512-b1GhmadrS75FC0s21B//8ctOZIVfzaoYB878tYsutBMGe4zqsO9CVc6/kuia/cpSsWqQsMtK/h9/Utkc4GEBhQ==
+obs-websocket-js@4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/obs-websocket-js/-/obs-websocket-js-4.0.2.tgz#b0dc6df1141f14878e04f927d12379f9ab234d52"
+  integrity sha512-e+tGp0DQNXSnitc5lfuzEC1dG3VdWy7VLePUVb6aq7bC33Sgjoi695k0eOg4UPTIQI71Z9aJ+yn3nvBX9dQkEg==
   dependencies:
     debug "^4.1.0"
     isomorphic-ws "^4.0.1"
