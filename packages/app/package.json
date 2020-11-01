@@ -13,7 +13,7 @@
     "@fortawesome/fontawesome-svg-core": "1.2.32",
     "@fortawesome/free-brands-svg-icons": "5.14.0",
     "@fortawesome/free-solid-svg-icons": "5.14.0",
-    "@fortawesome/react-fontawesome": "0.1.11",
+    "@fortawesome/react-fontawesome": "0.1.12",
     "dotenv": "8.2.0",
     "next": "9.4.4",
     "obs-websocket-js": "4.0.1",
