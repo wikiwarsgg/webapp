@@ -30,6 +30,6 @@
     "@emotion/core": "10.0.35",
     "@emotion/styled": "10.0.27",
     "babel-plugin-macros": "2.8.0",
-    "twin.macro": "1.11.0"
+    "twin.macro": "1.11.1"
   }
 }
