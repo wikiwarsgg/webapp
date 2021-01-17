@@ -18,7 +18,7 @@
     "next": "9.4.4",
     "obs-websocket-js": "4.0.2",
     "react": "16.13.1",
-    "react-copy-to-clipboard": "5.0.2",
+    "react-copy-to-clipboard": "5.0.3",
     "react-countdown": "2.2.2",
     "react-dom": "16.13.1",
     "react-konami-code": "1.4.3",
