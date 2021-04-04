@@ -17,10 +17,10 @@
     "dotenv": "8.2.0",
     "next": "9.4.4",
     "obs-websocket-js": "4.0.2",
-    "react": "16.13.1",
+    "react": "16.14.0",
     "react-copy-to-clipboard": "5.0.2",
     "react-countdown": "2.2.2",
-    "react-dom": "16.13.1",
+    "react-dom": "16.14.0",
     "react-konami-code": "1.4.3",
     "rtcmulticonnection": "3.7.0",
     "uuid": "8.3.2"
