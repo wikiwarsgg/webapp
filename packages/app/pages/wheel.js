@@ -3,24 +3,22 @@ import tw from "twin.macro";
 import Head from "next/head";
 
 var data = [
-  { label: "050POURCENT", image: "pictoroue_050POURCENT.jpg" },
+  { label: "50 %", image: "pictoroue_050POURCENT.jpg" },
   { label: "COMBO", image: "pictoroue_COMBO.jpg" },
   { label: "MAIN", image: "pictoroue_MAIN.jpg" },
   { label: "USA", image: "pictoroue_USA.jpg" },
-  { label: "300POURCENT", image: "pictoroue_300POURCENT.jpg" },
+  { label: "300 %", image: "pictoroue_300POURCENT.jpg" },
   { label: "CTRLF", image: "pictoroue_CTRLF.jpg" },
   { label: "PORTAIL", image: "pictoroue_PORTAIL.jpg" },
-  { label: "AIDE", image: "pictoroue_AIDE.jpg" },
-  { label: "FAUTEUIL", image: "pictoroue_FAUTEUIL.jpg" },
-  {
-    label: "SENSIBILITEMOINS",
-    image: "pictoroue_SENSIBILITEMOINS.jpg",
-  },
   { label: "ARTICLE", image: "pictoroue_ARTICLE.jpg" },
   { label: "FRANCE", image: "pictoroue_FRANCE.jpg" },
   {
-    label: "SENSIBILITEPLUS",
-    image: "pictoroue_SENSIBILITEPLUS.jpg",
+    label: "SWITCH",
+    image: "recycle-solid.png",
+  },
+  {
+    label: "RANDOM",
+    image: "exclamation-solid.png",
   },
 ];
 
