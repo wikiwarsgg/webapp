@@ -26,8 +26,8 @@
     "uuid": "8.3.2"
   },
   "devDependencies": {
-    "@emotion/babel-preset-css-prop": "10.0.27",
-    "@emotion/core": "10.0.35",
+    "@emotion/babel-preset-css-prop": "10.2.1",
+    "@emotion/core": "10.1.1",
     "@emotion/styled": "10.0.27",
     "babel-plugin-macros": "2.8.0",
     "twin.macro": "1.11.1"
