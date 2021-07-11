@@ -14,7 +14,7 @@
     "@fortawesome/free-brands-svg-icons": "5.15.3",
     "@fortawesome/free-solid-svg-icons": "5.15.3",
     "@fortawesome/react-fontawesome": "0.1.14",
-    "dotenv": "8.2.0",
+    "dotenv": "8.6.0",
     "next": "9.4.4",
     "obs-websocket-js": "4.0.2",
     "react": "16.13.1",
