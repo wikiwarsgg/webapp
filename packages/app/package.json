@@ -21,7 +21,7 @@
     "react-copy-to-clipboard": "5.0.3",
     "react-countdown": "2.2.2",
     "react-dom": "16.13.1",
-    "react-konami-code": "1.4.3",
+    "react-konami-code": "2.2.2",
     "rtcmulticonnection": "3.7.0",
     "uuid": "8.3.2"
   },
