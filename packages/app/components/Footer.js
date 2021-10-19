@@ -6,7 +6,7 @@ import {
   faFacebook,
   faGithub,
   faInstagram,
-  faTwitter
+  faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
@@ -32,7 +32,7 @@ const Link = tw.a`
   hover:text-wikiwars-blue
 `;
 
-export default () => (
+const Footer = () => (
   <Wrapper>
     <footer>
       <Row>
@@ -41,6 +41,7 @@ export default () => (
             tw="hover:bg-white hover:text-wikiwars-blue"
             href="https://wikiwars.gg"
             target="_blank"
+            rel="noreferrer"
           >
             Wikiwars © YES WE CAPS
           </a>
@@ -70,3 +71,5 @@ export default () => (
     </footer>
   </Wrapper>
 );
+
+export default Footer;

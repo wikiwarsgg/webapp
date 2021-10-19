@@ -12,8 +12,10 @@ const Button = styled.button`
     border-white
     uppercase`}
 
-  ${props => props.color == "success" && tw`border-wikiwars-blue bg-green-500`}
-  ${props => props.color == "warning" && tw`border-wikiwars-blue bg-orange-500`}
+  ${(props) =>
+    props.color == "success" && tw`border-wikiwars-blue bg-green-500`}
+  ${(props) =>
+    props.color == "warning" && tw`border-wikiwars-blue bg-orange-500`}
 `;
 
 const Controls = tw.span`
@@ -55,7 +57,7 @@ const renderer = ({ minutes, seconds, completed, api }) => {
   }
 };
 
-export default () => {
+const Timer = () => {
   const [key, setKey] = useState(0);
 
   return (
@@ -70,3 +72,5 @@ export default () => {
     </div>
   );
 };
+
+export default Timer;
