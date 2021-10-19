@@ -11,8 +11,10 @@ const Logo = tw.img`
   mx-auto
 `;
 
-export default () => (
+const Header = () => (
   <Wrapper>
     <Logo src="/logo.png" />
   </Wrapper>
 );
+
+export default Header;
